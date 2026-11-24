@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maya .B. AI | מערכות AI בהתאמה אישית לעסקים</title>
+<meta name="description" content="מאיה ברכה בונה לעסקים מערכות AI מותאמות אישית: מענה לפניות, טיוטות למיילים, סיכומי פגישות, מסמכים ומעקב אחרי לקוחות. פגישת ייעוץ ראשונה ללא עלות.">
+<meta property="og:title" content="Maya .B. AI | מערכות AI מותאמות לעסקים">
+<meta property="og:description" content="מעסק שעובד קשה לעסק שעובד חכם. מערכות AI בהתאמה אישית לעסק שלכם.">
+<meta property="og:image" content="assets/maya.jpg">
+<meta property="og:locale" content="he_IL">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@300;400;600;700&family=Michroma&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Maya .B. AI",
+  "description": "פיתוח מערכות AI מותאמות אישית לעסקים.",
+  "founder": {"@type": "Person", "name": "מאיה ברכה", "jobTitle": "AI Solutions Developer"},
+  "telephone": "+972-52-804-2689",
+  "areaServed": "IL",
+  "sameAs": ["https://www.instagram.com/maya.ai.studio/", "https://www.instagram.com/maya_bracha_yulzari/"]
+}
+</script>
+<style>
+:root{
+  --night:#070B24;
+  --deep:#0E1438;
+  --violet:#8B5CF6;
+  --sky:#38BDF8;
+  --ink:#EEF1FF;
+  --mute:#A3AAD0;
+  --line:rgba(139,92,246,.28);
+  --wrap:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--night);color:var(--ink);
+  font-family:"IBM Plex Sans Hebrew",system-ui,sans-serif;
+  font-size:18px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+/* רשת עדינה + זוהר שזז עם הגלילה */
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(56,189,248,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(56,189,248,.045) 1px,transparent 1px);
+  background-size:48px 48px;
+}
+.aurora{position:fixed;inset:-20%;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(40% 35% at var(--ax,80%) var(--ay,20%),rgba(139,92,246,.20),transparent 70%),
+    radial-gradient(35% 30% at calc(100% - var(--ax,80%)) calc(100% - var(--ay,20%)),rgba(56,189,248,.12),transparent 70%);
+}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--sky);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.latin{font-family:"Michroma",sans-serif;direction:ltr;unicode-bidi:isolate;letter-spacing:.12em}
+
+/* כותרת עליונה + פס התקדמות זוהר */
+header{position:sticky;top:0;z-index:10;background:rgba(7,11,36,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.progress{position:absolute;bottom:-1px;right:0;height:2px;width:100%;transform-origin:right;transform:scaleX(var(--p,0));
+  background:linear-gradient(270deg,var(--sky),var(--violet));box-shadow:0 0 10px var(--violet)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.mark{white-space:nowrap;letter-spacing:-.02em;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--violet);display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 0 14px rgba(139,92,246,.55),inset 0 0 10px rgba(56,189,248,.25);font-family:"Michroma";font-size:10px;direction:ltr}
+.mark b{color:var(--violet);font-weight:400}
+.brand .latin{font-size:13px}
+.brand .latin i{font-style:normal;color:var(--violet)}
+nav ul{display:flex;gap:28px;list-style:none}
+nav a{text-decoration:none;color:var(--mute);font-size:16px}
+nav a:hover{color:var(--ink)}
+.btn{display:inline-block;text-decoration:none;font-weight:600;border-radius:999px;padding:12px 26px;font-size:17px;transition:background .2s,box-shadow .2s}
+.btn-main{background:var(--violet);color:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.12) inset,0 8px 30px rgba(139,92,246,.45)}
+.btn-main:hover{background:#7C4DEB;box-shadow:0 0 0 1px rgba(255,255,255,.2) inset,0 8px 38px rgba(139,92,246,.7)}
+.btn-ghost{border:1px solid var(--sky);color:var(--sky)}
+.btn-ghost:hover{background:rgba(56,189,248,.1)}
+.bar .btn{padding:9px 20px;font-size:15px}
+
+/* פתיחה */
+.hero{padding:72px 0 40px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.role{color:var(--sky);font-size:17px;margin-bottom:14px}
+.role .latin{font-size:12px;color:var(--mute);margin-inline-start:10px}
+h1{font-size:clamp(34px,4.6vw,62px);line-height:1.15;font-weight:700;letter-spacing:-.01em;margin-bottom:22px}
+.lead{font-size:20px;color:var(--mute);max-width:30em;margin-bottom:18px}
+.lead strong{color:var(--ink);font-weight:600;font-size:22px}
+h1 .ln{display:block;white-space:nowrap}
+h1 .glow{background:linear-gradient(270deg,var(--sky),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 22px rgba(139,92,246,.45))}
+.future{color:var(--sky);font-size:19px;font-weight:600;margin-bottom:32px}
+.ctas{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.note{margin-top:18px;font-size:15px;color:var(--mute)}
+
+.side{text-align:center}
+.who{margin-top:18px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.who .name{font-size:20px;font-weight:600}
+.who .he{color:var(--sky);font-size:17px}
+.who .latin{color:var(--mute);font-size:11px;margin:4px 0 2px}
+.orbit{position:relative;aspect-ratio:1;max-width:500px;width:100%;margin-inline:auto}
+.orbit svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.orbit .photo{position:absolute;inset:13%;border-radius:50%;overflow:hidden;box-shadow:0 0 0 6px var(--night),0 0 60px rgba(139,92,246,.45)}
+.orbit .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
+.spin{transform-origin:250px 250px;animation:spin 60s linear infinite}
+.spin.rev{animation-duration:90s;animation-direction:reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* מעבר גל בין האזורים */
+.wave{position:relative;height:180px;margin:0;pointer-events:none}
+.wave canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+
+/* אזורים */
+section{padding:40px 0 56px;position:relative}
+h2{font-size:clamp(30px,4vw,46px);line-height:1.2;font-weight:700;margin-bottom:18px}
+.intro{color:var(--mute);max-width:36em;margin-bottom:44px}
+
+/* חשיפה בגלילה */
+.reveal{opacity:0;transform:translateY(28px) scale(.98);filter:blur(10px);
+  transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1),filter .9s;
+  transition-delay:calc(var(--i,0) * 90ms)}
+.reveal.on{opacity:1;transform:none;filter:none}
+
+/* המערכת */
+.hub{position:relative;height:540px;margin:0 0 48px;border-radius:28px;border:1px solid var(--line);
+  background:radial-gradient(45% 55% at 50% 50%,rgba(139,92,246,.20),transparent 70%),rgba(7,11,36,.5);overflow:hidden}
+.hub-lines{position:absolute;inset:0;width:100%;height:100%}
+.brain{position:absolute;left:50%;top:50%;width:112px;height:112px;margin:-56px 0 0 -56px;border-radius:50%;display:grid;place-items:center;color:#fff;
+  background:radial-gradient(circle,rgba(139,92,246,.55),rgba(14,20,56,.95) 70%);border:1.5px solid var(--violet);
+  box-shadow:0 0 30px rgba(139,92,246,.7),0 0 80px rgba(56,189,248,.25);animation:breathe 3.2s ease-in-out infinite}
+.brain svg{width:60px;height:60px;filter:drop-shadow(0 0 6px var(--sky))}
+.brain-label{position:absolute;left:50%;top:calc(50% + 66px);transform:translateX(-50%);font-size:14px;color:var(--sky);white-space:nowrap;background:#0B1033;padding:0 10px;border-radius:8px;z-index:2}
+.brain-do{position:absolute;left:50%;top:calc(50% + 90px);transform:translateX(-50%);font-size:15px;color:var(--ink);white-space:nowrap;
+  padding:4px 14px;border-radius:999px;background:#1A1650;z-index:2;border:1px solid rgba(139,92,246,.45);min-height:1.9em}
+.brain-do .caret{display:inline-block;width:2px;height:1em;background:var(--sky);margin-inline-start:3px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@keyframes breathe{50%{box-shadow:0 0 44px rgba(139,92,246,.95),0 0 110px rgba(56,189,248,.4)}}
+.node{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;font-size:15px;font-weight:600;padding:7px 16px;border-radius:999px;
+  background:rgba(14,20,56,.92);border:1px solid rgba(56,189,248,.45);box-shadow:0 0 14px rgba(56,189,248,.18);transition:box-shadow .25s,border-color .25s}
+.node.ping{border-color:var(--sky);box-shadow:0 0 22px rgba(56,189,248,.75)}
+.chip{font-size:15px;border:1px solid rgba(56,189,248,.4);color:var(--ink);border-radius:999px;padding:4px 14px;background:rgba(56,189,248,.06)}
+.mods{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.mod{position:relative;border-radius:22px;padding:30px 28px 28px;background:linear-gradient(170deg,rgba(14,20,56,.95),rgba(7,11,36,.9));border:1px solid var(--line);overflow:hidden;isolation:isolate}
+.mod::after{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .4s;
+  background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),rgba(139,92,246,.28),transparent 70%)}
+.mod:hover::after{opacity:1}
+.mod .ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px;border:1px solid rgba(139,92,246,.6);box-shadow:0 0 16px rgba(139,92,246,.35);color:var(--sky)}
+.mod .ic svg{width:24px;height:24px}
+.mod h3{font-size:21px;line-height:1.3;margin-bottom:8px}
+.mod .pain{color:var(--mute);font-size:15px;margin-bottom:16px}
+.mod ul{list-style:none;display:grid;gap:8px;font-size:16px}
+.mod li{padding-inline-start:20px;position:relative}
+.mod li::before{content:"";position:absolute;inset-inline-start:0;top:.6em;width:8px;height:8px;border-radius:50%;border:1.5px solid var(--sky);box-shadow:0 0 6px var(--sky)}
+.mod.wide{grid-column:span 3;display:grid;grid-template-columns:auto 1fr 1.3fr;gap:28px;align-items:center;
+  background:linear-gradient(120deg,rgba(139,92,246,.25),rgba(14,20,56,.9) 55%);border-color:rgba(139,92,246,.6)}
+.mod.wide ul{grid-template-columns:1fr 1fr;gap:8px 24px}
+.mod.wide .ic{margin:0}
+
+.closing{margin:48px auto 0;max-width:34em;text-align:center;font-size:clamp(21px,2.6vw,27px);font-weight:600;line-height:1.45;
+  padding:26px 28px;border-radius:20px;border:1px solid rgba(56,189,248,.4);background:rgba(56,189,248,.06);box-shadow:0 0 30px rgba(56,189,248,.12)}
+
+/* תהליך */
+.steps{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;counter-reset:s}
+.steps .track{position:absolute;top:22px;inset-inline:10%;height:2px;background:rgba(139,92,246,.2);overflow:hidden}
+.steps .track i{position:absolute;inset:0;transform-origin:right;transform:scaleX(0);transition:transform 1.6s cubic-bezier(.6,.1,.2,1) .2s;background:linear-gradient(270deg,var(--sky),var(--violet));box-shadow:0 0 10px var(--sky)}
+.steps.on .track i{transform:scaleX(1)}
+.step{counter-increment:s;text-align:center;padding:0 12px;position:relative}
+.step::before{content:counter(s);display:grid;place-items:center;width:44px;height:44px;margin:0 auto 18px;border-radius:50%;background:var(--night);border:1.5px solid var(--violet);font-family:"Michroma";font-size:14px;box-shadow:0 0 14px rgba(139,92,246,.5);position:relative;z-index:1}
+.step h3{font-size:19px;margin-bottom:6px}
+.step .free{display:block;font-size:15px;font-weight:600;color:var(--sky)}
+.step p{color:var(--mute);font-size:15px}
+
+/* עליי */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.about figure{border-radius:24px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5;box-shadow:0 0 50px rgba(139,92,246,.2)}
+.about img{width:100%;height:100%;object-fit:cover;object-position:50% 15%;display:block}
+.about p{margin-bottom:16px;max-width:34em}
+.about p.sub{color:var(--mute)}
+.care{font-size:22px;font-weight:600;color:var(--ink);border-inline-start:3px solid var(--violet);padding-inline-start:16px;margin-top:28px}
+
+/* יצירת קשר */
+.contact{text-align:center;padding-bottom:96px}
+.contact h2{font-size:clamp(32px,5vw,56px)}
+.contact .intro{margin-inline:auto}
+.phone{display:block;font-family:"Michroma";direction:ltr;font-size:clamp(26px,4.5vw,46px);letter-spacing:.06em;text-decoration:none;margin:8px 0 32px}
+.phone:hover{color:var(--sky)}
+.contact .ctas{justify-content:center}
+.socials{margin-top:36px;display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:center;color:var(--mute);font-size:16px}
+.socials a{text-decoration:none}
+.socials a:hover{color:var(--ink)}
+
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mute);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (prefers-reduced-motion:reduce){
+  .brain{animation:none}
+  .spin{animation:none}html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;filter:none;transition:none}
+  .steps .track i{transform:none;transition:none}
+}
+
+/* מובייל */
+@media (max-width:900px){
+  nav{display:none}
+  .hero{padding:40px 0 24px}
+  .hero-grid,.about{grid-template-columns:1fr}
+  .orbit{max-width:360px}
+  .side{order:-1}
+  .mods{grid-template-columns:1fr 1fr}
+  .mod.wide{grid-column:span 2;grid-template-columns:1fr;gap:14px}
+  .steps{grid-template-columns:1fr;gap:28px}
+  .steps .track{top:0;bottom:0;inset-inline:auto;inset-inline-start:21px;width:2px;height:auto}
+  .steps .track i{transform-origin:top;transform:scaleY(0);background:linear-gradient(var(--sky),var(--violet))}
+  .steps.on .track i{transform:scaleY(1)}
+  .step{text-align:start;padding:0;padding-inline-start:68px}
+  .step::before{position:absolute;inset-inline-start:0;top:0;margin:0}
+  .about figure{max-width:340px}
+  .wave{height:130px}
+}
+@media (max-width:640px){
+  body{font-size:17px}
+  .wrap{padding:0 16px}
+  .mods{grid-template-columns:1fr}
+  .mod.wide{grid-column:auto}
+  .mod.wide ul{grid-template-columns:1fr}
+  .bar .btn{display:none}
+  .brand .latin{font-size:12px}
+  .role .latin{display:none}
+  .hero{padding:20px 0 16px}
+  .orbit{max-width:230px}
+  .who{margin-top:8px}
+  .who .name{font-size:17px}
+  .who .he{font-size:15px}
+  .hero-grid{gap:22px}
+  h1{font-size:clamp(30px,9vw,40px)}
+  .lead{font-size:17px}
+  .lead strong{font-size:19px}
+  .future{font-size:17px;margin-bottom:24px}
+  .ctas .btn{flex:1 1 100%;text-align:center}
+  .wave{height:100px}
+  .hub{height:600px}
+  .brain-do{font-size:13px;top:calc(50% + 78px)}
+  .node{font-size:13px;padding:5px 11px}
+  .brain{width:92px;height:92px;margin:-46px 0 0 -46px}
+  .brain svg{width:50px;height:50px}
+  .brain-label{top:calc(50% + 56px)}
+}
+</style>
+</head>
+<body>
+<div class="aurora" aria-hidden="true"></div>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Maya .B. AI, לראש העמוד">
+      <span class="mark" aria-hidden="true">M<b>B</b></span>
+      <span class="latin">MAYA <i>.B.</i> AI</span>
+    </a>
+    <nav aria-label="ניווט ראשי">
+      <ul>
+        <li><a href="#system">המערכת</a></li>
+        <li><a href="#process">איך זה עובד</a></li>
+        <li><a href="#about">עליי</a></li>
+        <li><a href="#contact">יצירת קשר</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-main" href="#contact">פגישת ייעוץ ללא עלות</a>
+  </div>
+  <div class="progress" aria-hidden="true"></div>
+</header>
+
+<main id="top">
+
+    <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 class="reveal"><span class="ln">מעסק שעובד קשה</span><span class="ln glow">לעסק שעובד חכם</span></h1>
+        <p class="lead reveal" style="--i:1"><strong>מערכות AI בהתאמה אישית לעסק שלכם</strong><br>אני כאן כדי לבנות, להטמיע וללוות אתכם עד שזה עובד.</p>
+        <p class="future reveal" style="--i:2">המהפכה של ה-AI כבר כאן.<br>בואו נכניס אליה את העסק שלכם.</p>
+        <div class="ctas reveal" style="--i:3">
+          <a class="btn btn-main" href="https://wa.me/972528042689?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%90%D7%99%D7%94%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%95%D7%A2%20%D7%A4%D7%92%D7%99%D7%A9%D7%AA%20%D7%99%D7%99%D7%A2%D7%95%D7%A5" target="_blank" rel="noopener">לקביעת פגישת ייעוץ</a>
+          <a class="btn btn-ghost" href="#system">להכיר את העובד החדש</a>
+        </div>
+        <p class="note reveal" style="--i:4">פגישת ייעוץ ראשונה ללא עלות, בזום או פנים מול פנים.</p>
+      </div>
+
+      <div class="side">
+      <div class="orbit" aria-hidden="true">
+        <svg viewBox="0 0 500 500">
+          <defs>
+            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#38BDF8"/><stop offset="1" stop-color="#8B5CF6"/>
+            </linearGradient>
+          </defs>
+          <g stroke="#38BDF8" stroke-opacity=".55" fill="none" stroke-width="1.5">
+            <path d="M-90 140 H-10 L20 170 H34"/><circle cx="38" cy="170" r="4"/>
+            <path d="M-90 240 H4"/><circle cx="8" cy="240" r="4"/>
+            <path d="M-90 320 H-10 L16 346 H30"/><circle cx="34" cy="346" r="4"/>
+            <path d="M550 150 H510 L480 180 H466"/><circle cx="462" cy="180" r="4"/>
+            <path d="M550 260 H496"/><circle cx="492" cy="260" r="4"/>
+            <path d="M550 330 H520 L490 360 H472"/><circle cx="468" cy="360" r="4"/>
+          </g>
+          <circle cx="250" cy="250" r="232" fill="none" stroke="url(#g)" stroke-width="2" opacity=".35"/>
+          <g class="spin"><circle cx="250" cy="250" r="232" fill="none" stroke="url(#g)" stroke-width="3" stroke-dasharray="210 90 60 140" stroke-linecap="round"/></g>
+          <g class="spin rev"><circle cx="250" cy="250" r="244" fill="none" stroke="#8B5CF6" stroke-width="1.5" stroke-dasharray="4 14" opacity=".7"/></g>
+          <g fill="#fff"><circle cx="440" cy="70" r="2.5"/><circle cx="60" cy="430" r="2"/><circle cx="470" cy="420" r="1.8"/></g>
+        </svg>
+        <div class="photo"><img src="assets/maya.jpg" alt="מאיה ברכה"></div>
+      </div>
+      <p class="who"><span class="name">מאיה ברכה</span><span class="latin">AI SOLUTIONS DEVELOPER</span><span class="he">מפתחת פתרונות AI לעסקים</span></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="wave" aria-hidden="true"><canvas></canvas></div>
+
+  <section id="system">
+    <div class="wrap">
+      <h2 class="reveal">הכירו את העובד החדש שלכם</h2>
+      <p class="intro reveal" style="--i:1">הוא לא ישן, לא שוכח ולא מתעייף. הוא מכיר את העסק שלכם ועושה את העבודה שחוזרת על עצמה.</p>
+      <div class="hub reveal" style="--i:2" aria-label="המערכת מתחברת ל-Gmail, יומן, וואטסאפ, Google Drive, מסמכי Word, טבלאות, אינסטגרם, פייסבוק, זום, טלגרם, Canva, ניהול לקוחות">
+        <svg class="hub-lines" aria-hidden="true"></svg>
+        <div class="brain" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M31 9c-3-3-10-3-12 2-5 0-8 4-7 8-4 2-5 7-2 10-3 3-2 9 2 11-1 5 3 9 8 9 1 5 7 7 11 4z"/>
+            <path d="M33 9c3-3 10-3 12 2 5 0 8 4 7 8 4 2 5 7 2 10 3 3 2 9-2 11 1 5-3 9-8 9-1 5-7 7-11 4z"/>
+            <path d="M32 9v45M19 11c2 3 6 4 9 3M12 19c3 1 6 0 8-2M10 29c4 0 7 2 8 5M12 40c3-2 7-2 9 0M20 49c1-3 4-5 7-5M45 11c-2 3-6 4-9 3M52 19c-3 1-6 0-8-2M54 29c-4 0-7 2-8 5M52 40c-3-2-7-2-9 0M44 49c-1-3-4-5-7-5"/>
+          </svg>
+        </div>
+        <span class="brain-label">המערכת שלכם</span>
+        <span class="brain-do" aria-live="off"><span class="txt"></span><span class="caret"></span></span>
+        <span class="node" data-k="0">Gmail</span>
+        <span class="node" data-k="1">יומן</span>
+        <span class="node" data-k="2">וואטסאפ</span>
+        <span class="node" data-k="3">Google Drive</span>
+        <span class="node" data-k="4">מסמכי Word</span>
+        <span class="node" data-k="5">טבלאות</span>
+        <span class="node" data-k="6">אינסטגרם</span>
+        <span class="node" data-k="7">פייסבוק</span>
+        <span class="node" data-k="8">זום</span>
+        <span class="node" data-k="9">טלגרם</span>
+        <span class="node" data-k="10">Canva</span>
+        <span class="node" data-k="11">ניהול לקוחות</span>
+      </div>
+
+      <div class="mods">
+        <article class="mod wide reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg></div>
+          <div>
+            <h3>מכיר את העסק כמו עובד ותיק</h3>
+            <p class="pain" style="margin:0">לומד את העסק פעם אחת, וזוכר הכול.</p>
+          </div>
+          <ul>
+            <li>מכיר את השירותים, המחירים והלקוחות</li>
+            <li>כותב בסגנון ובטון שלכם</li>
+            <li>זוכר החלטות ושיחות קודמות</li>
+            <li>כל דבר יוצא רק אחרי אישור שלכם</li>
+          </ul>
+        </article>
+
+        <article class="mod reveal" style="--i:1">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+          <h3>מיילים והודעות</h3>
+          <p class="pain">במקום לכתוב כל תשובה מאפס.</p>
+          <ul>
+            <li>טיוטת תשובה מוכנה לכל מייל</li>
+            <li>מיון לפי דחוף, לקוח, ספק</li>
+            <li>תזכורת על מה שעוד לא נענה</li>
+          </ul>
+        </article>
+
+        <article class="mod reveal" style="--i:2">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 10h6M9 13.5h4"/></svg></div>
+          <h3>לקוחות ופניות</h3>
+          <p class="pain">כדי שאף פנייה לא תיפול בין הכיסאות.</p>
+          <ul>
+            <li>מענה ראשוני מיידי, גם בלילה</li>
+            <li>רשימה מסודרת של כל הפניות והסטטוס</li>
+            <li>פולו־אפ אוטומטי למי שלא חזר</li>
+          </ul>
+        </article>
+
+        <article class="mod reveal" style="--i:3">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h4"/></svg></div>
+          <h3>מסמכים והצעות מחיר</h3>
+          <p class="pain">אותו מסמך, בלי להתחיל כל פעם מחדש.</p>
+          <ul>
+            <li>הצעת מחיר מוכנה לפי פרטי הלקוח</li>
+            <li>חוזים, טפסים ומכתבים מתבניות שלכם</li>
+            <li>שמירה מסודרת בתיקייה הנכונה</li>
+          </ul>
+        </article>
+
+        <article class="mod reveal" style="--i:1">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4M8 14h3"/></svg></div>
+          <h3>יומן ופגישות</h3>
+          <p class="pain">פחות התכתבויות, יותר סדר.</p>
+          <ul>
+            <li>תיאום פגישות ותזכורות ללקוחות</li>
+            <li>סיכום כל פגישה ורשימת משימות</li>
+            <li>שליחת הסיכום ללקוח באישור שלכם</li>
+          </ul>
+        </article>
+
+        <article class="mod reveal" style="--i:2">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+          <h3>תמונת מצב יומית</h3>
+          <p class="pain">לדעת מה קורה בעסק בלי לחפש.</p>
+          <ul>
+            <li>סיכום בוקר: מה דחוף היום</li>
+            <li>מעקב אחרי הכנסות, תשלומים ופניות</li>
+            <li>דוח שבועי קצר וברור</li>
+          </ul>
+        </article>
+
+        <article class="mod reveal" style="--i:3">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l2.4 5 5.6.8-4 3.9.9 5.5L12 15.6 7.1 18.2l.9-5.5-4-3.9 5.6-.8z"/></svg></div>
+          <h3>משימות מותאמות לעסק</h3>
+          <p class="pain">כל עסק והתהליכים המיוחדים לו.</p>
+          <ul>
+            <li>אוטומציה לתהליך שרק אצלכם קיים</li>
+            <li>חיבור בין כלים שלא מדברים ביניהם</li>
+            <li>הדרכה וליווי עד שזה עובד ביומיום</li>
+          </ul>
+        </article>
+              <article class="mod reveal" style="--i:1">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div>
+          <h3>שליטה מהנייד</h3>
+          <p class="pain">העסק איתכם, גם כשאתם לא ליד המחשב.</p>
+          <ul>
+            <li>נותנים משימות בהודעה מהטלפון</li>
+            <li>מקבלים עדכונים ואישורים בזמן אמת</li>
+            <li>תדריך בוקר קצר ישר לנייד</li>
+          </ul>
+        </article>
+
+        <article class="mod reveal" style="--i:2">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 11v2a1 1 0 0 0 1 1h2l5 4V6L7 10H5a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></div>
+          <h3>תוכן ושיווק</h3>
+          <p class="pain">נוכחות קבועה ברשתות, בלי לשבור את הראש.</p>
+          <ul>
+            <li>רעיונות לפוסטים ולסרטונים</li>
+            <li>כיתובים בסגנון של העסק</li>
+            <li>תכנון תוכן שבועי</li>
+          </ul>
+        </article>
+
+        <article class="mod reveal" style="--i:3">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
+          <h3>ארכיון וזיכרון</h3>
+          <p class="pain">כל מה שקרה בעסק, במקום אחד.</p>
+          <ul>
+            <li>הקלטות וסיכומים של כל הפגישות</li>
+            <li>חיפוש מהיר בכל המידע של העסק</li>
+            <li>גיבוי אוטומטי ומאובטח</li>
+          </ul>
+        </article>
+      </div>
+      <p class="closing reveal">מכלי אחד ועד מערכת שלמה.<br>הכל לפי מה שהעסק שלכם צריך.</p>
+    </div>
+  </section>
+
+  <div class="wave" aria-hidden="true"><canvas></canvas></div>
+
+  <section id="process">
+    <div class="wrap">
+      <h2 class="reveal">איך זה עובד</h2>
+      <p class="intro reveal" style="--i:1">תהליך מסודר, מפגישת הייעוץ ועד מערכת שעובדת אצלכם.</p>
+      <ol class="steps">
+        <span class="track" aria-hidden="true"><i></i></span>
+        <li class="step reveal" style="--i:0"><h3>פגישת ייעוץ ראשונה<span class="free">ללא עלות</span></h3><p>נפגשים, מכירים, מבינים את העסק ואיפה הזמן הולך.</p></li>
+        <li class="step reveal" style="--i:2"><h3>אפיון</h3><p>פגישת עבודה מעמיקה.<br>ממפים את התהליכים בעסק ומגדירים בדיוק מה המערכת תעשה.</p></li>
+        <li class="step reveal" style="--i:4"><h3>בנייה</h3><p>את המערכת אני בונה במיוחד בשבילכם, ומחברת אותה לכלים שאתם כבר עובדים איתם.</p></li>
+        <li class="step reveal" style="--i:6"><h3>הטמעה</h3><p>המערכת נכנסת לעבודה היומיומית של העסק.</p></li>
+        <li class="step reveal" style="--i:8"><h3>הדרכה וליווי</h3><p>אני מלמדת אתכם לעבוד איתה, צעד אחר צעד.<br>שלושה חודשים של ליווי צמוד, עד שהכל רץ מעצמו.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="wave" aria-hidden="true"><canvas></canvas></div>
+
+    <section id="about">
+    <div class="wrap about">
+      <figure class="reveal"><img src="assets/maya.jpg" alt="מאיה ברכה, מפתחת פתרונות AI לעסקים" loading="lazy"></figure>
+      <div>
+        <h2 class="reveal" style="--i:1">הטכנולוגיה רצה קדימה.<br>אני כאן כדי שלא תישארו מאחור.</h2>
+        <p class="reveal" style="--i:2">אני מאיה ברכה, מפתחת פתרונות AI לעסקים.</p>
+        <p class="sub reveal" style="--i:3">בשבילי AI הוא לא המטרה. הוא הכלי שמחזיר לבעלי עסקים זמן, שקט וביטחון.<br>אני מקשיבה, מבינה את העסק ובונה פתרון שמתאים לכם באמת.</p>
+        <p class="sub reveal" style="--i:4">אתם לא נשארים לבד מול הטכנולוגיה. לאורך כל הדרך, אני לצידכם.</p>
+        <p class="care reveal" style="--i:5">מאחורי כל מערכת, יש מישהי שאכפת לה.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="wave" aria-hidden="true"><canvas></canvas></div>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2 class="reveal">בואו נבין יחד לאן העסק שלכם מתקדם</h2>
+      <p class="intro reveal" style="--i:1">פגישת ייעוץ ראשונה ללא עלות, בזום או פנים מול פנים.<br>אפשר להתקשר או לכתוב לי בוואטסאפ.</p>
+      <a class="phone reveal" style="--i:2" href="tel:+972528042689">052-8042689</a>
+      <div class="ctas reveal" style="--i:3">
+        <a class="btn btn-main" href="https://wa.me/972528042689?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%90%D7%99%D7%94%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%95%D7%A2%20%D7%A4%D7%92%D7%99%D7%A9%D7%AA%20%D7%99%D7%99%D7%A2%D7%95%D7%A5" target="_blank" rel="noopener">כתיבה בוואטסאפ</a>
+        <a class="btn btn-ghost" href="tel:+972528042689">שיחת טלפון</a>
+      </div>
+      <div class="socials reveal" style="--i:4">
+        <a href="https://www.instagram.com/maya.ai.studio/" target="_blank" rel="noopener">אינסטגרם העסקי <span dir="ltr">@maya.ai.studio</span></a>
+        <a href="https://www.instagram.com/maya_bracha_yulzari/" target="_blank" rel="noopener">אינסטגרם האישי <span dir="ltr">@maya_bracha_yulzari</span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="latin">MAYA .B. AI</span>
+    <span>© 2026 מאיה ברכה · מערכות AI מותאמות לעסקים</span>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const root = document.documentElement;
+
+  /* חשיפה בגלילה */
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+  }), { threshold: .15, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal, .steps').forEach(el => io.observe(el));
+
+  /* פס התקדמות וזוהר רקע שזזים עם הגלילה */
+  let lastY = scrollY, energy = 0;
+  const onScroll = () => {
+    const max = root.scrollHeight - innerHeight;
+    const p = max > 0 ? scrollY / max : 0;
+    root.style.setProperty('--p', p.toFixed(4));
+    root.style.setProperty('--ax', (80 - p * 60) + '%');
+    root.style.setProperty('--ay', (20 + p * 60) + '%');
+    energy = Math.min(1, energy + Math.abs(scrollY - lastY) / 400);
+    lastY = scrollY;
+  };
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  /* זוהר שעוקב אחרי העכבר בכרטיסים */
+  document.querySelectorAll('.mod').forEach(m => m.addEventListener('pointermove', e => {
+    const r = m.getBoundingClientRect();
+    m.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    m.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  }));
+
+  /* המוח והכלים: קווים מהמרכז וחלקיקי אור שרצים החוצה */
+  const hub = document.querySelector('.hub');
+  if (hub) {
+    const svg = hub.querySelector('.hub-lines');
+    const nodes = [...hub.querySelectorAll('.node')];
+    const NS = 'http://www.w3.org/2000/svg';
+    const layout = () => {
+      const W = hub.clientWidth, H = hub.clientHeight, cx = W / 2, cy = H / 2;
+      const narrow = W < 640;
+      const rx = narrow ? W * .31 : Math.min(W * .40, 420), ry = narrow ? H * .43 : H * .40;
+      svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+      svg.innerHTML = `<defs><linearGradient id="hl" gradientUnits="userSpaceOnUse" x1="${cx}" y1="${cy}" x2="${cx + rx}" y2="${cy}">
+        <stop offset="0" stop-color="#8B5CF6"/><stop offset="1" stop-color="#38BDF8"/></linearGradient></defs>`;
+      nodes.forEach((n, i) => {
+        const ang = -Math.PI / 2 + i * (2 * Math.PI / nodes.length) + (narrow ? 0 : Math.PI / nodes.length);
+        const x = cx + Math.cos(ang) * rx, y = cy + Math.sin(ang) * ry;
+        n.style.left = x + 'px'; n.style.top = y + 'px';
+        const mx = (cx + x) / 2 + Math.sin(ang) * 30, my = (cy + y) / 2 - Math.cos(ang) * 30;
+        const d = `M${cx},${cy} Q${mx},${my} ${x},${y}`;
+        const path = document.createElementNS(NS, 'path');
+        path.setAttribute('d', d); path.setAttribute('id', 'hp' + i);
+        path.setAttribute('fill', 'none'); path.setAttribute('stroke', 'url(#hl)');
+        path.setAttribute('stroke-width', '1.4'); path.setAttribute('stroke-opacity', '.55');
+        svg.appendChild(path);
+        if (!reduce) {
+          const dot = document.createElementNS(NS, 'circle');
+          dot.setAttribute('r', '3.2'); dot.setAttribute('fill', '#fff');
+          dot.setAttribute('style', 'filter:drop-shadow(0 0 5px #38BDF8)');
+          const am = document.createElementNS(NS, 'animateMotion');
+          const dur = 2.4 + (i % 3) * .5;
+          am.setAttribute('dur', dur + 's'); am.setAttribute('repeatCount', 'indefinite');
+          am.setAttribute('begin', (i * .37) + 's');
+          const mp = document.createElementNS(NS, 'mpath'); mp.setAttribute('href', '#hp' + i);
+          am.appendChild(mp); dot.appendChild(am); svg.appendChild(dot);
+          clearInterval(n._t);
+          setTimeout(() => { n._t = setInterval(() => { n.classList.add('ping'); setTimeout(() => n.classList.remove('ping'), 350); }, dur * 1000); }, (i * .37 + dur) * 1000 - 100);
+        }
+      });
+    };
+    layout();
+    const acts = ['עונה לפניות של לקוחות','מכין טיוטות למיילים','מסכם פגישות ומוציא משימות','מכין הצעות מחיר','מתאם פגישות ביומן',
+      'שולח תזכורות ופולו־אפ','שולח לכם תדריך בוקר','מחפש בהקלטות של פגישות','מפיק דוח שבועי','כותב פוסטים לרשתות',
+      'מעדכן טבלאות ומספרים','מקבל משימות מהנייד','מגבה את כל המידע'];
+    const txt = hub.querySelector('.brain-do .txt');
+    if (reduce) { txt.textContent = acts[0]; }
+    else {
+      let ai = 0, ci = 0, del = false;
+      const tick = () => {
+        const w = acts[ai];
+        if (!del) { ci++; txt.textContent = w.slice(0, ci); if (ci === w.length) { del = true; return setTimeout(tick, 1600); } }
+        else { ci--; txt.textContent = w.slice(0, ci); if (ci === 0) { del = false; ai = (ai + 1) % acts.length; } }
+        setTimeout(tick, del ? 28 : 55);
+      };
+      tick();
+    }
+    let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(layout, 150); });
+  }
+
+  /* גלי אור שמחברים בין האזורים; מתעוררים כשגוללים */
+  const waves = [...document.querySelectorAll('.wave canvas')].map((c, idx) => ({ c, ctx: c.getContext('2d'), idx, vis: false, drawn: 0 }));
+  const wio = new IntersectionObserver(es => es.forEach(e => {
+    const w = waves.find(w => w.c === e.target); if (w) w.vis = e.isIntersecting;
+  }));
+  waves.forEach(w => wio.observe(w.c));
+  const size = () => waves.forEach(w => {
+    const d = Math.min(devicePixelRatio || 1, 2);
+    w.c.width = w.c.clientWidth * d; w.c.height = w.c.clientHeight * d; w.d = d;
+  });
+  addEventListener('resize', size); size();
+
+  const lines = [
+    { a: .30, f: 1.6, s: .55, o: 0,   col: ['#38BDF8', '#8B5CF6'], wdt: 2.2, alpha: .95 },
+    { a: .22, f: 2.3, s: -.4, o: 1.7, col: ['#8B5CF6', '#38BDF8'], wdt: 1.4, alpha: .6 },
+    { a: .16, f: 3.1, s: .8,  o: 3.1, col: ['#38BDF8', '#A78BFA'], wdt: 1,   alpha: .4 },
+    { a: .36, f: 1.1, s: -.25,o: 4.4, col: ['#6D28D9', '#38BDF8'], wdt: .8,  alpha: .3 }
+  ];
+  const draw = (w, t) => {
+    const { c, ctx, d } = w, W = c.width, H = c.height, mid = H / 2;
+    ctx.clearRect(0, 0, W, H);
+    const boost = 1 + energy * 1.4;
+    const reach = reduce ? 1 : w.drawn;
+    lines.forEach((L, k) => {
+      const g = ctx.createLinearGradient(0, 0, W, 0);
+      g.addColorStop(0, L.col[0]); g.addColorStop(1, L.col[1]);
+      ctx.strokeStyle = g; ctx.globalAlpha = L.alpha; ctx.lineWidth = L.wdt * d;
+      ctx.shadowColor = L.col[0]; ctx.shadowBlur = 14 * d;
+      ctx.beginPath();
+      const end = W * reach;
+      for (let x = W; x >= W - end; x -= 6 * d) {
+        const u = x / W;
+        const env = Math.sin(Math.PI * u);            /* נרגע בקצוות */
+        const y = mid + Math.sin(u * Math.PI * 2 * L.f + t * L.s + L.o + w.idx) * H * L.a * env * boost
+                      + Math.sin(u * 9 + t * 1.3 + k) * H * .03 * boost;
+        x === W ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    });
+    /* נקודות אור שרצות על הגל הראשי */
+    ctx.shadowBlur = 18 * d; ctx.globalAlpha = 1; ctx.fillStyle = '#fff';
+    for (let n = 0; n < 3; n++) {
+      const u = 1 - ((t * .06 + n / 3 + w.idx * .17) % 1);
+      if (1 - u > reach) continue;
+      const L = lines[0], env = Math.sin(Math.PI * u);
+      const y = mid + Math.sin(u * Math.PI * 2 * L.f + t * L.s + L.o + w.idx) * H * L.a * env * boost
+                    + Math.sin(u * 9 + t * 1.3) * H * .03 * boost;
+      ctx.beginPath(); ctx.arc(u * W, y, 2.4 * d, 0, 7); ctx.fill();
+    }
+    ctx.shadowBlur = 0; ctx.globalAlpha = 1;
+  };
+
+  if (reduce) { waves.forEach(w => draw(w, 0)); return; }
+  const loop = now => {
+    const t = now / 1000;
+    energy *= .94;
+    waves.forEach(w => {
+      if (!w.vis) return;
+      w.drawn = Math.min(1, w.drawn + .018);
+      draw(w, t);
+    });
+    requestAnimationFrame(loop);
+  };
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
